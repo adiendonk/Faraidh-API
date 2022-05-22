@@ -9,8 +9,4 @@ app.use(express.static('public'));
 app.use(express.urlencoded({ extended: false }));
 app.use(require('./router'));
 
-const serverlessExpress = require('aws-serverless-express');
-const server = serverlessExpress.createServer(app);
-exports.handler  = (event, context) => serverlessExpress.proxy(server, event, context)
-
-//app.listen(port, () => console.log(`Running in port ${port}...`));
+app.listen(port, () => console.log(`Running in port ${port}...`));
